@@ -1,0 +1,21 @@
+{
+  "generator-jhipster": {
+    "baseName": "jhip2",
+    "packageName": "com.ots.jhip2",
+    "packageFolder": "com/ots/jhip2",
+    "authenticationType": "session",
+    "hibernateCache": "ehcache",
+    "clusteredHttpSession": "no",
+    "websocket": "no",
+    "databaseType": "sql",
+    "devDatabaseType": "h2Memory",
+    "prodDatabaseType": "mysql",
+    "searchEngine": "no",
+    "useSass": false,
+    "buildTool": "maven",
+    "frontendBuilder": "grunt",
+    "javaVersion": "8",
+    "enableTranslation": false,
+    "rememberMeKey": "bf7d989dc1fa71fdb9e32b22a88046013b745311"
+  }
+}
