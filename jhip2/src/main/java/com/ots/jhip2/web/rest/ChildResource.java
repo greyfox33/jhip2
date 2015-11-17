@@ -96,6 +96,20 @@ public class ChildResource {
     }
 
     /**
+     * GET  /childrenByCase/:id -> get all the children associated with a case.
+     * (RMT-11/16/15) customized for case maintenance
+     */
+    @RequestMapping(value = "/childrenbycase/{id}",
+            method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public List<Child> getChildrenByCase(@PathVariable Long id) {
+        log.debug("REST request to get ChildrenByCase : {}", id);
+        return childRepository.findAllByCwcase(id);
+    }
+
+    
+    /**
      * DELETE  /childs/:id -> delete the "id" child.
      */
     @RequestMapping(value = "/childs/{id}",
