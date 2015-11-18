@@ -1,19 +1,23 @@
 'use strict';
 
 angular.module('jhip2App')
-    .controller('CompositeController', function ($scope, ??cwcaseid) {
-    	
-    	//** STOP HERE: need to load cwcase with single passed case
-    	// and load all children of that case. 
+    .controller('CompositeController', function ($scope, cwcaseid) {
+    	//
         $scope.cwcases = [];
-        $scope.loadAll = function() {
-            Cwcase.query(function(result) {
+        $scope.loadcase = function() {
+            Cwcase.getOne(cwcaseid) {
                $scope.cwcases = result;
             });
         };
-        $scope.loadAll();
+        $scope.children = [];
+        $scope.loadChildren = function(cwcaseid) {
+        	$http.get("http://localhost:8080/childByCase")
+        	.success(function(response)
+        			{$scope.children = response.records;}
+        	);
+        };
 
-
+        // add a refresh or clean here
         $scope.refresh = function () {
             $scope.loadAll();
             $scope.clear();
