@@ -5,12 +5,19 @@ angular.module('jhip2App').controller('CompositeController',
         function($scope, $stateParams, $modalInstance, entity, Cwcase, Child) {
 
     	//
-        $scope.Cwcases = [];
-        $scope.loadcase = function() {
-            Cwcase.getOne(id) {
-               $scope.cwcases = result;
+        $scope.cwcase = [];
+        $scope.loadcase = function(id) {
+            Cwcase.get( {id: id}, function (result) {
+               $scope.cwcase = result;
             });
         };
+//        $scope.load = function (id) {
+//            Child.get({id: id}, function(result) {
+//                $scope.child = result;
+//            });
+//        };
+        $scope.loadcase(id);
+        
         $scope.children = [];
         $scope.loadChildren = function(id) {
         	$http.get("http://localhost:8080/childByCase")
@@ -24,4 +31,4 @@ angular.module('jhip2App').controller('CompositeController',
             $scope.clear();
         };
 
-    });
+    }]);
