@@ -1,22 +1,27 @@
 'use strict';
 
 angular.module('jhip2App').controller('CompositeController',
-    ['$scope', '$stateParams', '$modalInstance', 'entity', 'Cwcase', 'Child',
-        function($scope, $stateParams, $modalInstance, entity, Cwcase, Child) {
+    ['$scope', '$http', '$stateParams', function($scope, $http, $stateParams) {
 
     	//
         $scope.cwcase = [];
+        //$scope.cwcase = entity;
         $scope.loadcase = function(id) {
-            Cwcase.get( {id: id}, function (result) {
-               $scope.cwcase = result;
-            });
+        	$http.get("http://localhost:3000/#/cwcase/" + id)
+        	.success(function(response)
+        			{$scope.cwcase = response.records;}
+        	);
         };
+        
+//      Cwcase.get( {id: $stateparams.id}, function (result) {
+//      $scope.cwcase = result;
+//   });
 //        $scope.load = function (id) {
 //            Child.get({id: id}, function(result) {
 //                $scope.child = result;
 //            });
 //        };
-        $scope.loadcase(id);
+        $scope.loadcase($stateParams.id);
         
         $scope.children = [];
         $scope.loadChildren = function(id) {
@@ -26,9 +31,9 @@ angular.module('jhip2App').controller('CompositeController',
         	);
         };
         // add a refresh or clean here
-        $scope.refresh = function () {
-            $scope.loadAll();
-            $scope.clear();
-        };
+//        $scope.refresh = function () {
+//            $scope.loadAll();
+//            $scope.clear();
+//        };
 
     }]);
