@@ -5,8 +5,8 @@ angular.module('jhip2App')
     .config(function ($stateProvider) {
         $stateProvider
             .state('composite', {
-                //parent: 'entity',
-                //url: '/cwcases',
+                parent: 'entity',
+                url: '/composite',
                 data: {
                     authorities: ['ROLE_USER'],
                     pageTitle: 'Maintain a Case'
