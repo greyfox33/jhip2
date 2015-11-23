@@ -29,7 +29,7 @@
             </div>
         </div>
     </div>
-
+	
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
@@ -41,29 +41,34 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="child in childs">
-                    <td><a ui-sref="child.detail({id:child.id})">{{child.id}}</a></td>
-                    <td>{{child.createdate}}</td>
-                    <td>{{child.casestatus}}</td>
+				<tr ng-repeat="cwcase in cwcases">
+                    <td><a ui-sref="cwcase.detail({id:cwcase.id})">{{cwcase.id}}</a></td>
+                    <td>{{cwcase.createdate}}</td>
+                    <td>{{cwcase.casestatus}}</td>
                     <td>
                         <button type="submit"
-                                ui-sref="child.detail({id:child.id})"
+                                ui-sref="cwcase.detail({id:cwcase.id})"
                                 class="btn btn-info btn-sm">
                             <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span> View</span>
                         </button>
                         <button type="submit"
-                                ui-sref="child.edit({id:child.id})"
+                                ui-sref="cwcase.edit({id:cwcase.id})"
                                 class="btn btn-primary btn-sm">
                             <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span> Edit</span>
                         </button>
                         <button type="submit"
-                                ng-click="delete(child.id)"
+                                ng-click="delete(cwcase.id)"
                                 class="btn btn-danger btn-sm">
                             <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span> Delete</span>
                         </button>
                     </td>
                 </tr>
             </tbody>
+       	</table>
+    </div>
+    <div>Children Associated With Case </div>
+    <div>
+       	<table class="table table-striped">	
             <tbody>
                 <tr ng-repeat="child in children">
                    <td><a ui-sref="child.detail({id:child.id})">{{child.id}}</a></td>
@@ -94,6 +99,6 @@
                     </td>
                 </tr>
             </tbody>
-        </table>
+         </table>
     </div>
 </div>

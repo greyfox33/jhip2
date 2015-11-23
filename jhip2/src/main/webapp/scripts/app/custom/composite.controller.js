@@ -11,8 +11,6 @@ angular.module('jhip2App').controller('CompositeController',
             });
         };
         $scope.load($stateParams.id);
-        
-
   
         $scope.children = [];
         $scope.loadChildren = function() {
