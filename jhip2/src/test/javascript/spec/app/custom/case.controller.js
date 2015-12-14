@@ -15,7 +15,7 @@ describe('Maintain Case Tests ', function () {
         it('should be defined CWCASE', function () {
             expect($scope.cwcases).toBeDefined();
         });
-        
+// test of github    
 //        it('should be defined CWCASE2', function () {
 //            expect($scope.cwcases).toBeUndefined();
 //        });
