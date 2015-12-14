@@ -210,4 +210,6 @@ public class ChildResourceTest {
         List<Child> childs = childRepository.findAll();
         assertThat(childs).hasSize(databaseSizeBeforeDelete - 1);
     }
+    
+    //custom tests 
 }

@@ -269,6 +269,7 @@ module.exports = function (grunt) {
                 singleRun: true
             }
         },
+        // protractor config would go here
         ngAnnotate: {
             dist: {
                 files: [{
