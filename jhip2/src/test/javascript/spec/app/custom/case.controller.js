@@ -1,5 +1,6 @@
 'use strict';
 
+// custom unit tests written in karma
 describe('Maintain Case Tests ', function () {
 
     beforeEach(module('jhip2App'));

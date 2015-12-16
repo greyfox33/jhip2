@@ -269,7 +269,24 @@ module.exports = function (grunt) {
                 singleRun: true
             }
         },
-        // protractor config would go here
+        // protractor config goes here
+        //(RMT-12/15/15) -- added for e2e testing
+    	protractor: {
+    	    options: {
+    	      //configFile: "src/test/javascript/protractor/conf.js", // Default config file 
+    	      keepAlive: true, // If false, the grunt process stops when the test fails. 
+    	      noColor: false, // If true, protractor will not use colors in its output. 
+    	      args: {
+    	        // Arguments passed to the command 
+    	      }
+    	    },
+    	    unit: {   // Grunt requires at least one target to run so you can simply put 'all: {}' here too. 
+    	      options: {
+    	        configFile: 'src/test/javascript/protractor/conf.js', // Target-specific config file 
+    	        args: {} // Target-specific arguments 
+    	      }
+    	    },
+    	},
         ngAnnotate: {
             dist: {
                 files: [{
@@ -340,6 +357,10 @@ module.exports = function (grunt) {
         'wiredep:test',
         'ngconstant:dev',
         'karma'
+    ]);
+    
+    grunt.registerTask('e2e', [
+        'protractor:unit'
     ]);
 
     grunt.registerTask('build', [
