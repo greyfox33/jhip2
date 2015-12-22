@@ -269,7 +269,6 @@ module.exports = function (grunt) {
                 singleRun: true
             }
         },
-        // protractor config goes here
         //(RMT-12/15/15) -- added for e2e testing
     	protractor: {
     	    options: {
