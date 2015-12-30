@@ -97,7 +97,7 @@ public class ChildResource {
 
     /**
      * GET  /childrenByCase/:id -> get all the children associated with a case.
-     * (RMT-11/16/15) customized for case maintenance
+     * (RMT-12/29/15) customized for case maintenance
      */
     @RequestMapping(value = "/childrenbycase/{id}",
             method = RequestMethod.GET,
